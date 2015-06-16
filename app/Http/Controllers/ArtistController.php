@@ -19,12 +19,7 @@ class ArtistController extends Controller
     public function index()
     {
         $artists = \App\Artist::all();
-        return view('artist.index', compact('artists'));
-
-        /*$artists = DB::table('artist')           
-        ->get();
-        dd($artists);
-        return \View::make('artist.index',$artists);*/
+        return view('artist.index', compact('artists'));      
     }
 
     /**
@@ -67,7 +62,8 @@ class ArtistController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artist = \App\Artist::find($id);
+        return view('artist.edit', compact('artist'));
     }
 
     /**
@@ -78,7 +74,11 @@ class ArtistController extends Controller
      */
     public function update($id)
     {
-        //
+        $artist = \App\Artist::find($id);
+        $name = \Input::get('name');
+        $artist->name = $name;
+        $artist->save();
+        return redirect('artists');
     }
 
     /**

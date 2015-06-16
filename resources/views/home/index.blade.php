@@ -48,7 +48,7 @@
                         <a class="page-scroll" href="/artists">Artist</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Songs</a>
+                        <a class="page-scroll" href="/songs">Songs</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Send it to Rockola!</a>

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('user/login');
 });
 
+/*Route::get('/', function () {
+    return view('info');
+});*/
+
 Route::resource('users', 'UserController');
 Route::post('register', 'UserController@store');
 
@@ -23,5 +27,7 @@ Route::get('homes', function () {
 });
 
 Route::resource('artists', 'ArtistController');
-Route::get('artists', 'ArtistController@index');
-
+//Route::get('artists', 'ArtistController@index');
+Route::resource('songs', 'SongController');
+Route::get('songs/{id}/delete', 'SongController@destroy');
+Route::post('songs/{id}/update', 'SongController@update');

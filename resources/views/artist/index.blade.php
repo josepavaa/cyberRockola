@@ -34,7 +34,7 @@
                                         <td>{{{ $artist->id }}}</td>
                                         <td>{{{ $artist->name }}}</td>
                                         <td>
-                                            <a href="/artists/{{{$artist->id}}}/edit">Editar</a>                              
+                                            <a class="btn btn-default btn-xs glyphicon glyphicon-pencil" href="/artists/{{{$artist->id}}}/edit"></a>                              
                                         </td>
                                         </tr>
                                         @empty
