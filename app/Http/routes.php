@@ -27,7 +27,11 @@ Route::get('homes', function () {
 });
 
 Route::resource('artists', 'ArtistController');
-//Route::get('artists', 'ArtistController@index');
+
 Route::resource('songs', 'SongController');
 Route::get('songs/{id}/delete', 'SongController@destroy');
 Route::post('songs/{id}/update', 'SongController@update');
+
+
+Route::resource('rocks', 'RockController');
+Route::get('rocks/{id}/send', 'RockController@send');

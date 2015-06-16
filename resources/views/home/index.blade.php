@@ -51,7 +51,7 @@
                         <a class="page-scroll" href="/songs">Songs</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Send it to Rockola!</a>
+                        <a class="page-scroll" href="/rocks">Send it to Rockola!</a>
                     </li>
                 </ul>
             </div>
