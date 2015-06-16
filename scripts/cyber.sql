@@ -1,13 +1,12 @@
 /*CyberRock*/
 
 CREATE TABLE "user" (
-	id INTEGER NOT NULL,
-	user_name VARCHAR(60) NOT NULL ,
+	id serial NOT NULL,
 	email VARCHAR(60) NOT NULL ,
 	password VARCHAR(60) NOT NULL,	
 	is_admin BOOLEAN NOT NULL DEFAULT FALSE ,
 	PRIMARY KEY (id) ,
-	UNIQUE(user_name,email)
+	UNIQUE(email)
 );
 
 CREATE TABLE artist(

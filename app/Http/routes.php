@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user/login');
 });
+
+Route::resource('users', 'UserController');
+Route::post('register', 'UserController@store');
+
+Route::get('homes', function () {
+    return view('home/index');
+});
+
+Route::get('artists', 'ArtistController@index');
+
