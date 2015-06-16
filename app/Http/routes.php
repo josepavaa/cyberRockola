@@ -22,5 +22,6 @@ Route::get('homes', function () {
     return view('home/index');
 });
 
+Route::resource('artists', 'ArtistController');
 Route::get('artists', 'ArtistController@index');
 

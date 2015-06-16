@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 </head>
 <body>
+  
+  <div class="container">    
+  <div id="registerbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+  <div class="panel panel-info" >
+  <div class="panel-heading">
+  <div class="panel-title">Register</div>
+  <br>  
   {!! Form::open(array('url' => 'register')) !!}
   <fieldset>
-    <div id="legend">
-      <legend class="">Register</legend>
-    </div>
-    
  
     <div class="control-group">
       <!-- E-mail -->
@@ -32,17 +35,30 @@
         <p class="help-block">Password should be at least 4 characters</p>
       </div>
     </div>
+
+     <div class="control-group">
+      <!-- retype-->
+      <label class="control-label" for="retype">Verify Password</label>
+      <div class="controls">
+        {!! Form::password('retype', array('placeholder' => 'Contraseña', 'class' => 'form-control', 'required' => 'true')) !!}
+        <p class="help-block">Retype Password</p>
+      </div>
+    </div>
  
    
     <div class="control-group">
       <!-- Button -->
       <div class="controls">        
-        {!! Form::submit('Join', array())!!}
+        {!! Form::submit('Join', array()) !!}
       </div>
     </div>
   </fieldset>
 
 {!! Form::close() !!}
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
 

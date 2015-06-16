@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Artist;
+use DB;
 
 class ArtistController extends Controller
 {
@@ -16,8 +17,14 @@ class ArtistController extends Controller
      * @return Response
      */
     public function index()
-    {        
-        return \View::make('artist.index');
+    {
+        $artists = \App\Artist::all();
+        return view('artist.index', compact('artists'));
+
+        /*$artists = DB::table('artist')           
+        ->get();
+        dd($artists);
+        return \View::make('artist.index',$artists);*/
     }
 
     /**
@@ -27,7 +34,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        //
+        return view('artist.create');
     }
 
     /**
@@ -37,7 +44,8 @@ class ArtistController extends Controller
      */
     public function store()
     {
-        //
+        \App\Artist::create(\Input::all());
+        return redirect('artists');
     }
 
     /**
