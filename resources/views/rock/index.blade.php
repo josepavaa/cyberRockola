@@ -15,7 +15,7 @@
                             @if (Session::has('message'))
                                 <div class="alert alert-info">{!! Session::get('message') !!}</div>
                             @endif
-                            <table class="table table-hover table-striped" id="lista">
+                            <table class="table table-hover table-striped" id="myTable">
                                 <thead>
                                     <tr>                                        
                                         <th>Name</th>
@@ -43,6 +43,7 @@
                         </div>
                         </div>
                         <!-- /.table-responsive -->
+                        {!! $songs->render() !!}
                     </div>
                 </div>             
             </div>                    

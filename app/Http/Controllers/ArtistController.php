@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Artist;
 use DB;
+use Auth;
 
 class ArtistController extends Controller
 {
@@ -18,8 +19,11 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        $artists = \App\Artist::all();
-        return view('artist.index', compact('artists'));      
+        if (Auth::user()->is_admin){
+            $artists = \App\Artist::all();
+            return view('artist.index', compact('artists'));
+         }
+        return redirect('homes');      
     }
 
     /**
@@ -29,7 +33,10 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        return view('artist.create');
+        if (Auth::user()->is_admin){
+            return view('artist.create');
+         }
+        return redirect('homes');
     }
 
     /**

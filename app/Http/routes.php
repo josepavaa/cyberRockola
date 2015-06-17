@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::resource('users', 'UserController');
 Route::post('register', 'UserController@store');
+Route::post('logon', 'UserController@logon');
 
 Route::get('homes', function () {
     return view('home/index');

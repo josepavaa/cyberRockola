@@ -10,6 +10,7 @@ use Input;
 use Hash;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class UserController extends Controller
 {
@@ -53,47 +54,23 @@ class UserController extends Controller
         return Redirect::to('/');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
+   public function logon(){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $userdata = array(
+            'email'     => Input::get('email'),
+            'password'  => Input::get('password')
+        );
+        if (Auth::attempt($userdata)) {
+            
+            if (Auth::user()->is_admin){
+                return Redirect::to('homes');
+            }
+            return Redirect::to('rocks');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+        } else {
+            // validation not successful, send back to form
+            return Redirect::to('/')->withErrors(array('invalid_credentials' => 'Acceso Denegado'));
+        }
+    
+   }
 }

@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Input;
 use Illuminate\Support\Facades\Redirect;
 use App\Song;
+use Auth;
+
 class SongController extends Controller
 {
     /**
@@ -18,8 +20,11 @@ class SongController extends Controller
      */
     public function index()
     {
-        $songs = \App\Song::all();
-        return view('song.index', compact('songs'));
+        if (Auth::user()->is_admin){
+            $songs = \App\Song::all();
+            return view('song.index', compact('songs'));
+        }
+        return redirect('homes');    
     }
 
     /**
@@ -29,9 +34,13 @@ class SongController extends Controller
      */
     public function create()
     {
-        //$artists = \App\Artist::all();
-        $artists = \App\Artist::lists('name', 'id');
-        return view('song.create', compact('artists'));
+        if (Auth::user()->is_admin){
+            //$artists = \App\Artist::all();
+            $artists = \App\Artist::lists('name', 'id');
+            return view('song.create', compact('artists'));
+        }
+        return redirect('homes');    
+
     }
 
     /**

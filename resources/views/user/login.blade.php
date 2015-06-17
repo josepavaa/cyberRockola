@@ -23,21 +23,21 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form id="loginform" class="form-horizontal" role="form">
+                        {!! Form::open(array('url' => 'logon')) !!}
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="email">                                        
+                                         {!! Form::email('email', Input::old('email'), array('placeholder' => '', 'class' => 'form-control', 'required' => 'true')) !!}                                        
                                     </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                                        {!! Form::password('password', array('placeholder' => 'Contraseña', 'class' => 'form-control', 'required' => 'true')) !!}
                                     </div>
                                                   
-                            
-
-
+                           {!! Form::submit('Login', array()) !!}
+                           <br>
+<br>
                                 
 
 
@@ -45,13 +45,13 @@
                                     <div class="col-md-12 control">
                                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                             Don't have an account! 
-                                        <a href="users/create" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                        <a href="users/create" onClick="">
                                             Sign Up Here
                                         </a>
                                         </div>
                                     </div>
                                 </div>    
-                            </form>     
+                            {!! Form::close() !!}  
 
 
 

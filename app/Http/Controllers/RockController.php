@@ -23,7 +23,7 @@ class RockController extends Controller
      */
     public function index()
     {
-        $songs = \App\Song::all();
+        $songs = \App\Song::paginate(15);
         return view('rock.index', compact('songs'));
     }
 
