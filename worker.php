@@ -44,8 +44,14 @@ $ch->queue_bind($queue, $exchange);
 function process_message($msg)
 {
     echo "\n--------\n";
-    echo $msg->body;
+    echo "Reproduciendo:";
     echo "\n--------\n";
+
+    $file = $msg->body;
+    $comm = "play ".$file;
+            //echo "$comm\n";
+            echo shell_exec($comm);
+
 
     $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
 
